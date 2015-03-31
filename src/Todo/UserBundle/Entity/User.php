@@ -8,18 +8,19 @@
 
 namespace Todo\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="users")
  */
 class User extends BaseUser {
 
     public function __construct()
     {
-        parent::__construct();
+        $this->task = new ArrayCollection();
 
     }
 
@@ -27,8 +28,11 @@ class User extends BaseUser {
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\OneToMany(targetEntity="Todo\UserBundle\Entity\Task", mappedBy="user")
      */
     protected $id;
+
+
 
 
 
