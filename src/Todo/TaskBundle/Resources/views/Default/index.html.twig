@@ -1,1 +1,7 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% if is_granted('ROLE_USER') %}
+        {{ app.user.username }}
+    {% endif %}
+{% endblock %}

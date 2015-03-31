@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class TaskRepository extends EntityRepository
 {
+    public function findAllTasks($task) {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.name = :name')
+            ->setParameter('name', $task)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }
