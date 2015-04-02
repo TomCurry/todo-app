@@ -24,7 +24,7 @@ class DefaultController extends Controller
                 'SELECT p
             FROM TaskBundle:Task p
             WHERE p.user = :user'
-            )->setParameter('user', $user->getId());
+            )->setParameter('user', $user);
 
             $tasks = $query->getResult();
 

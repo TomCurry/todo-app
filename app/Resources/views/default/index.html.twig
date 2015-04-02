@@ -4,10 +4,15 @@
     {% if is_granted('ROLE_USER') %}
         <ul class="collection">
             {% for task in tasks %}
-                <li class="collection-item">{{ task.name }}</li>
+            <li class="collection-item">
+                <p>
+                    <input type="checkbox" id="{{ task.id }}" {% if task.done == true %} {{ "checked" }} {% endif %} onclick=""/>
+                    <label for="{{ task.id }}">{{ task.name }}</label>
+                </p>
+                </li>
             {% endfor %}
         </ul>
     {% else %}
-        {{ "Please login to view your to do list!" }}
+       <p> {{ "Please login to view your to do list!" }} </p>
     {% endif %}
 {% endblock %}
