@@ -35,10 +35,26 @@ class Task
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Todo\UserBundle\Entity\User", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Todo\UserBundle\Entity\User", inversedBy="")
      * @ORM\JoinColumn()
      */
     private $user;
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param ArrayCollection $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 
     /**
      * @var boolean
@@ -93,29 +109,6 @@ class Task
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set user
-     *
-     * @param integer $user
-     * @return Task
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return integer 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 
     /**

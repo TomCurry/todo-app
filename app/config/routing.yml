@@ -12,3 +12,7 @@ fos_user:
 tasks:
     resource: "@TaskBundle/Controller/TaskController.php"
     type:     annotation
+
+homepage:
+    pattern:  /
+    defaults: { _controller: TaskBundle:Default:index }

@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Homepage.
+    {% if is_granted('ROLE_USER') %}
+        <ul class="collection">
+            {% for task in tasks %}
+                <li class="collection-item">{{ task.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {{ "Please login to view your to do list!" }}
+    {% endif %}
 {% endblock %}

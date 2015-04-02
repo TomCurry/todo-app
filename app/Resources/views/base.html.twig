@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Todo App!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css">
@@ -12,23 +12,29 @@
     <nav>
         <div class="nav-wrapper teal lighten-2">
             <a href="#" class="brand-logo">Todo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            <ul class="right hide-on-med-and-down">
                 <li><a href="">Tasks</a></li>
 
                     {% if is_granted('ROLE_USER') %}
                         <li><a href="">
                         {{ "Welcome, " ~ app.user.username|title ~ "!"}}
+                        </a></li>
+                        <li><a href="logout">
+                                {{ "Logout"}}
+                            </a></li>
                     {% else %}
                         <li><a href="login">
                         {{ "Login" }}
+                            </a></li>
                     {% endif %}
-                </a></li>
                 <!--<li><a href="javascript.html">JavaScript</a></li> -->
             </ul>
         </div>
     </nav>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        {% endblock %}
     </body>
 </html>

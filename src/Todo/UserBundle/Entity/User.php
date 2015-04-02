@@ -20,7 +20,7 @@ class User extends BaseUser {
 
     public function __construct()
     {
-        $this->task = new ArrayCollection();
+        parent::__construct();
 
     }
 
