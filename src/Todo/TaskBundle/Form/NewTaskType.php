@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: tom
+ * Date: 07/04/15
+ * Time: 11:41
+ */
 
 namespace Todo\TaskBundle\Form;
 
@@ -6,7 +12,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class TaskCompleteType extends AbstractType
+
+class NewTaskType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,17 +23,13 @@ class TaskCompleteType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('done')
-            ->add('created')
-            ->add('updated')
-            ->add('user')
-        ;
+            ->add('Add', 'submit');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'Todo\TaskBundle\Entity\Task'

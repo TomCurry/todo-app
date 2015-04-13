@@ -12,6 +12,12 @@
                 </li>
             {% endfor %}
         </ul>
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+             {{ form_row(form.name) }}
+        {{ form_end(form) }}
+
     {% else %}
        <p> {{ "Please login to view your to do list!" }} </p>
     {% endif %}
