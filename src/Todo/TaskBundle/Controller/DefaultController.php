@@ -56,4 +56,12 @@ class DefaultController extends Controller
         }
         return $this->render('Default/index.html.twig');
     }
+
+    /**
+     * @Route("/admin")
+     */
+    public function adminAction()
+    {
+        return new Response('Admin page!');
+    }
 }

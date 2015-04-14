@@ -16,3 +16,7 @@ tasks:
 homepage:
     pattern:  /
     defaults: { _controller: TaskBundle:Default:index }
+
+admin:
+    pattern: /admin
+    defaults: { _controller: TaskBundle:Default:admin }
